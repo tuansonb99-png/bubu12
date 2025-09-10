@@ -1,0 +1,207 @@
+下面这份代码已经 **全部修正大小写、CSS 语法、路径、空格**，直接复制 → 保存为 `index.html` → push 到 GitHub，Pages 就能正常识别并渲染。
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABUBU 限定潮玩宇宙</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;background:#0d0d0d;color:#fff;overflow-x:hidden;}
+        ::selection{background:#00ff88;color:#000;}
+        :root{--neon:#00ff88;--dark:#0d0d0d;--gray:#1a1a1a;}
+
+        /* 导航 */
+        nav{position:fixed;top:0;width:100%;padding:20px 5%;background:rgba(13,13,13,.9);backdrop-filter:blur(10px);z-index:999;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--neon);}
+        .logo{font-size:24px;font-weight:800;letter-spacing:2px;color:var(--neon);}
+        .menu{display:flex;gap:30px;list-style:none;}
+        .menu a{color:#fff;text-decoration:none;transition:.3s;position:relative;}
+        .menu a:after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--neon);transition:.3s;}
+        .menu a:hover:after{width:100%;}
+
+        /* 首屏 */
+        header{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:radial-gradient(circle at center,rgba(0,255,136,.15) 0%,transparent 70%);}
+        h1{font-size:clamp(3rem,8vw,6rem);letter-spacing:4px;font-weight:900;background:linear-gradient(90deg,var(--neon),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .subtitle{font-size:1.2rem;margin-top:20px;color:#aaa;}
+        .scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:30px;height:50px;border:2px solid var(--neon);border-radius:15px;display:flex;justify-content:center;align-items:flex-start;padding-top:8px;animation:scroll 2s infinite;}
+        .scroll:before{content:"";width:4px;height:8px;background:var(--neon);border-radius:2px;}
+        @keyframes scroll{0%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(10px);}100%{transform:translateX(-50%) translateY(0);}}
+
+        /* 产品区 */
+        .section{padding:100px 5%;max-width:1200px;margin:auto;}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
+        .card{background:var(--gray);border-radius:20px;overflow:hidden;transition:.4s;position:relative;border:1px solid transparent;}
+        .card:hover{transform:translateY(-10px);border-color:var(--neon);box-shadow:0 0 30px rgba(0,255,136,.3);}
+        .card img{width:100%;height:300px;object-fit:cover;transition:.5s;}
+        .card:hover img{transform:scale(1.05);}
+        .info{padding:25px;}
+        .info h3{font-size:1.5rem;margin-bottom:10px;color:var(--neon);}
+        .price{font-size:1.2rem;font-weight:700;margin:15px 0;}
+        .tag{display:inline-block;padding:4px 12px;background:rgba(0,255,136,.15);color:var(--neon);border-radius:12px;font-size:.8rem;margin-right:8px;}
+
+        /* 倒计时 */
+        .countdown{text-align:center;margin:80px 0;background:var(--gray);padding:40px;border-radius:20px;border:1px solid var(--neon);}
+        .countdown h2{margin-bottom:20px;font-size:2rem;}
+        #timer{display:flex;justify-content:center;gap:20px;font-size:2rem;font-weight:700;}
+        #timer div{background:rgba(0,255,136,.1);padding:15px 25px;border-radius:10px;min-width:80px;}
+
+        /* 页脚 */
+        footer{text-align:center;padding:40px 5%;background:#000;color:#555;font-size:.9rem;}
+
+        /* 响应式 */
+        @media(max-width:768px){
+            .menu{gap:15px;font-size:.9rem;}
+            .grid{grid-template-columns:1fr;}
+            #timer{font-size:1.5rem;gap:10px;}
+            #timer div{min-width:60px;padding:10px 15px;}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">LABUBU</div>
+    <ul class="menu">
+        <li><a href="#new">新品</a></li>
+        <li><a href="#blind">盲盒</a></li>
+        <li><a href="#collab">联名</a></li>
+        <li><a href="#buy">购买</a></li>
+    </ul>
+</nav>
+
+<header>
+    <div>
+        <h1>LABUBU 限定宇宙</h1>
+        <p class="subtitle">潮玩无界 · 限定永恒</p>
+    </div>
+    <div class="scroll"></div>
+</header>
+
+<section id="new" class="section">
+    <h2 style="text-align:center;margin-bottom:50px;font-size:2.5rem;">最新限定</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/00ff88/000?text=霓虹Labubu" alt="">
+            <div class="info">
+                <h3>霓虹之影</h3>
+                <p>城市限定版，夜光涂层，黑暗中散发霓虹。</p>
+                <div class="price">¥899</div>
+                <span class="tag">限量3000体</span><span class="tag">夜光</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/ff0088/fff?text=玫瑰Labubu" alt="">
+            <div class="info">
+                <h3>玫瑰金属</h3>
+                <p>金属电镀玫瑰红，镜面效果，附独立编号。</p>
+                <div class="price">¥1299</div>
+                <span class="tag">限量1999体</span><span class="tag">电镀</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/0088ff/fff?text=太空Labubu" alt="">
+            <div class="info">
+                <h3>太空漫游</h3>
+                <p>透明蓝+星空亮片，致敬人类探索精神。</p>
+                <div class="price">¥799</div>
+                <span class="tag">限量5000体</span><span class="tag">透明</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blind" class="section">
+    <h2 style="text-align:center;margin-bottom:50px;font-size:2.5rem;">盲盒系列</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/8800ff/fff?text=赛博盲盒" alt="">
+            <div class="info">
+                <h3>赛博纪元系列</h3>
+                <p>12款常规+1款隐藏，赛博朋克配色。</p>
+                <div class="price">¥99/抽</div>
+                <span class="tag">整盒1188</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/ff8800/fff?text=美食盲盒" alt="">
+            <div class="info">
+                <h3>美食大作战</h3>
+                <p>化身寿司、披萨、冰淇淋，治愈满满。</p>
+                <div class="price">¥89/抽</div>
+                <span class="tag">整盒1068</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section countdown">
+    <h2>下一轮发售倒计时</h2>
+    <div id="timer">
+        <div id="d">00<span style="display:block;font-size:.8rem;">天</span></div>
+        <div id="h">00<span style="display:block;font-size:.8rem;">时</span></div>
+        <div id="m">00<span style="display:block;font-size:.8rem;">分</span></div>
+        <div id="s">00<span style="display:block;font-size:.8rem;">秒</span></div>
+    </div>
+</div>
+
+<section id="collab" class="section">
+    <h2 style="text-align:center;margin-bottom:50px;font-size:2.5rem;">联名专区</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/000/fff?text=×BAPE" alt="">
+            <div class="info">
+                <h3>LABUBU × BAPE</h3>
+                <p>迷彩鲨鱼帽+经典猿人头，双重信仰加成。</p>
+                <div class="price">¥1899</div>
+                <span class="tag">限量1500体</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300/fff/000?text=×KAWS" alt="">
+            <div class="info">
+                <h3>LABUBU × KAWS</h3>
+                <p>XX眼+ Companion 手，艺术跨界天花板。</p>
+                <div class="price">¥2999</div>
+                <span class="tag">限量999体</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="buy" class="section" style="text-align:center;">
+    <h2 style="margin-bottom:30px;font-size:2.5rem;">立即抢购</h2>
+    <p style="color:#aaa;margin-bottom:40px;">关注官方公众号「LABUBU_CLUB」获取发售日历<br>天猫/小程序/线下快闪同步开售</p>
+    <a href="https://www.labubu.com" target="_blank" style="display:inline-block;padding:18px 50px;background:var(--neon);color:#000;border-radius:50px;font-weight:700;font-size:1.2rem;text-decoration:none;transition:.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">前往天猫旗舰店</a>
+</section>
+
+<footer>
+    © 2024 LABUBU 限定宇宙 | 泡泡玛特旗下高端潮玩线
+</footer>
+
+<script>
+    // 倒计时
+    function countdown(){
+        const end=new Date("2025-12-31T20:00:00");
+        const now=new Date();
+        const diff=end-now;
+        if(diff<=0){document.getElementById("timer").innerHTML="<div style='grid-column:1/-1;'>发售已开始！</div>";return;}
+        const d=Math.floor(diff/86400000);
+        const h=Math.floor(diff%86400000/3600000);
+        const m=Math.floor(diff%3600000/60000);
+        const s=Math.floor(diff%60000/1000);
+        document.getElementById("d").firstChild.textContent=String(d).padStart(2,'0');
+        document.getElementById("h").firstChild.textContent=String(h).padStart(2,'0');
+        document.getElementById("m").firstChild.textContent=String(m).padStart(2,'0');
+        document.getElementById("s").firstChild.textContent=String(s).padStart(2,'0');
+    }
+    setInterval(countdown,1000);countdown();
+
+    // 滚动浮现
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("fade-in")});},{threshold:.2});
+    document.querySelectorAll(".card, .countdown, #buy").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
+```
